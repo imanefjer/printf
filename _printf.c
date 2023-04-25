@@ -4,7 +4,7 @@
 
 int length(char str[]);
 void print_S(va_list arg);
-void print_C(char c);
+void print_C(va_list arg);
 /**
  * _printf - Printf function
  * @format: format.
@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 		{"c", print_C}
 	};
 	va_start(arg, format);
-	while (*(format + j) != '/0'){
+	while (*(format + j)){
 		if (*(format + j) == '%'){
 			i = 0;
 			while (i < 2){
@@ -46,10 +46,10 @@ int _printf(const char *format, ...)
 */
 int length(char str[]){
 	int i = 0;
-	while(str[i] != '\0'){
+	while(str[i]){
 		i++;
 	}
-	return i;
+	return (i);
 }
 /**
  * print_S - prints a string
@@ -66,10 +66,12 @@ void print_S(va_list arg)
 
 /**
  * print_C - writes the character c to stdout
- * @c: The character to print
+ * @arg: Argument
  * Return: nothing
  */
-void  print_C(char c)
+void  print_C(va_list arg )
 {
-	write(1, &c, 1);
+	char *c;
+	c = va_arg(arg, char *);
+	write(1, c, 1);
 }
