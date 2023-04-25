@@ -1,6 +1,9 @@
 #include "main.h"
+#include <unistd.h>
+#include <stdarg.h>
 
 int length(char str[]);
+void print_S(va_list arg);
 /**
  * _printf - Printf function
  * @format: format.
@@ -9,6 +12,10 @@ int length(char str[]);
 
 int _printf(const char *format, ...)
 {
+	va_list arg;
+	va_start(arg, format);
+	print_S(arg);
+	return (0);
 }
 
 /**
@@ -22,4 +29,16 @@ int length(char str[]){
 		i++;
 	}
 	return i;
+}
+/**
+ * print_S - prints a string
+ * @arg: Argument
+ * Return: nothing
+*/
+void print_S(va_list arg)
+{
+	char *x;
+
+	x = va_arg(arg, char *);
+	write(1, x, length(x));
 }
