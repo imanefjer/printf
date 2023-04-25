@@ -13,10 +13,12 @@ void print_C(char c);
 
 int _printf(const char *format, ...)
 {
+	int i = 0, k = 0;
 	va_list arg;
-	va_start(arg, format);
-	print_S(arg);
-	return (0);
+	format_W format[] = {
+		{"s", print_S},
+		{"c", print_C}
+	};
 }
 
 /**
