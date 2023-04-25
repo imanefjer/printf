@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 		{"c", print_C}
 	};
 	va_start(arg, format);
-	while (*(format + j)){
+	while (*format && *(format + j)){
 		if (*(format + j) == '%'){
 			i = 0;
 			while (i < 2){
