@@ -20,7 +20,8 @@ int _printf(const char *format, ...)
 	int check = 0;
 	format_W formats[] = {
 		{"s", print_S},
-		{"c", print_C}
+		{"c", print_C},
+		{"d", print_d}
 	};
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -35,12 +36,13 @@ int _printf(const char *format, ...)
 		{
 			i = 0;
 			check = 0;
-			while (i < 2)
+			while (i < 3)
 			{
 				if (format[j + 1] == *formats[i].format)
 				{
 					len += formats[i].f(arg);
 					check = 1;
+					printf("%s", *formats[i].format);
 				}
 				i++;
 			}
