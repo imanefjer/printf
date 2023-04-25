@@ -4,7 +4,7 @@
 #include <stdarg.h>
 
 int length(char str[]);
-void print_S(va_list arg);
+int print_S(va_list arg);
 void print_C(va_list arg);
 
 /**
@@ -15,7 +15,7 @@ void print_C(va_list arg);
 
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0, k = 0;
+	int i = 0, j = 0, len = 0;
 	va_list arg;
 	int check = 0;
 	format_W formats[] = {
@@ -31,37 +31,38 @@ int _printf(const char *format, ...)
 	}
 	va_start(arg, format);
 
-	while (*format && *(format + j))
+	while (format[j] != '\0')
 	{
-		if (*(format + j) == '%')
+		if (format[j] == '%')
 		{
 			i = 0;
 			check = 0;
 			while (i < 2)
 			{
-				if (*(format + j + 1) == *formats[i].format)
+				if (format[j + 1] == *formats[i].format)
 				{
-					formats[i].f(arg);
-					k++;
+					len + = formats[i].f(arg);
 					check = 1;
+					j += 2;
 				}
-			i++;
+				i++;
 			}
 
 			if (check == 0)
 			{
 				write(1, (format + j), 1);
-				if (*(format + j + 1) != '%')
+				if (format[j + 1] != '%')
 				{
 					write(1, (format + j + 1), 1);
 				}
 			}
-			j++;
+			/*j++;*/
 		}
 		else
 		{
 			write(1, (format + j), 1);
 		}
+		len++;
 		j++;
 	}
 	va_end(arg);
@@ -88,13 +89,20 @@ int length(char str[])
  * @arg: Argument
  * Return: nothing
 */
-void print_S(va_list arg)
+int print_S(va_list arg)
 {
 	char *x;
+	int len = 0;
 
 	x = va_arg(arg, char *);
-	if (va_arg(arg, int) > 0)
-		write(1, x, length(x));
+	len = lenght(x);
+	if (x == NULL)
+	{
+		len = length("(NULL)");
+		return (len) ;
+	}
+	write(1, x, length(x));
+	return (len);
 }
 
 /**
