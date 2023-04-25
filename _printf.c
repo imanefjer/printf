@@ -69,9 +69,9 @@ void print_S(va_list arg)
  * @arg: Argument
  * Return: nothing
  */
-void  print_C(va_list arg )
+void  print_C(va_list arg)
 {
-	char *c;
-	c = va_arg(arg, char *);
+	char c;
+	c = va_arg(arg, int);
 	write(1, c, 1);
 }
