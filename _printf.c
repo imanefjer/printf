@@ -30,15 +30,11 @@ int _printf(const char *format, ...)
 					formats[i].f(arg);
 					k++;
 				}
-				else
-					{
-						write(1, (format + j), 1);
-						write(1, (format+j+1), 1);
-					}
-				i++;
+			i++;
 			}
 			if (i == 2){
 				write(1, (format +j),1);
+				write(1, (format + j +1), 1);
 			}
 
 			j++;
