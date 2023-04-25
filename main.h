@@ -10,4 +10,6 @@ typedef struct formats
 } format_W;
 
 int _printf(const char *format, ...);
+int print_I(va_list arg);
 #endif
+
