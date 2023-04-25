@@ -6,7 +6,7 @@
 int length(char str[]);
 int print_S(va_list arg);
 int print_C(va_list arg);
-void print_I(va_list arg);
+int print_I(va_list arg);
 /**
  * _printf - Printf function
  * @format: format.
@@ -123,7 +123,7 @@ int  print_C(va_list arg)
  * @arg: Argument
  * Return: nothing
  */
-void print_I(va_list arg)
+int  print_I(va_list arg)
 {
 	int i;
 	char str[12];
@@ -151,4 +151,5 @@ void print_I(va_list arg)
 	}
 	output[j] = '\0';
 	write(1, output, j);
+	return (1);
 }
