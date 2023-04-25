@@ -9,7 +9,7 @@
  */
 int  print_I(va_list arg)
 {
-	 int i;
+	int i;
 	char str[12];
 	char output[12];
 	int j = 0;
@@ -37,4 +37,3 @@ int  print_I(va_list arg)
 	write(1, output, j);
 	return (1);
 }
- 
