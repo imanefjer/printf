@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 #include <unistd.h>
 #include <stdarg.h>
 
@@ -25,7 +26,7 @@ int _printf(const char *format, ...)
 		if (*(format + j) == '%'){
 			i = 0;
 			while (i < 2){
-				if (*(format + i + 1) == *formats[i].format){
+				if (*(format + j + 1) == *formats[i].format){
 					formats[i].f(arg);
 					k++;
 				}
@@ -34,7 +35,7 @@ int _printf(const char *format, ...)
 			j++;
 		}
 		else{
-			write(1, (format + 1), 1);
+			write(1, (format + j), 1);
 		}
 		j++;
 	}
