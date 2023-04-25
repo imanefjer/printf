@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 		{"c", print_C}
 	};
 
-	if (format == NULL)
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 	{
 		return (-1);
 	}
@@ -94,12 +94,11 @@ int print_S(va_list arg)
 	int len = 0;
 
 	x = va_arg(arg, char *);
-	len = length(x);
 	if (x == NULL)
 	{
-		len = length("(NULL)");
-		return (len);
+		x = "(NULL)";
 	}
+	len = length(x);
 	write(1, x, len);
 	return (len);
 }
