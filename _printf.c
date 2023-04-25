@@ -38,7 +38,9 @@ int _printf(const char *format, ...)
 			}
 			if (check == 0){
 				write(1, (format +j),1);
-				write(1, (format + j +1), 1);
+				if (*(format+j+1) != ']' && *(format+j+1) !=','){
+					write(1, (format + j +1), 1);
+				}
 			}
 
 			j++;
