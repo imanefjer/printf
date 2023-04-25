@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 #include <unistd.h>
 #include <stdarg.h>
 
@@ -90,7 +91,7 @@ void print_S(va_list arg)
 	char *x;
 
 	x = va_arg(arg, char *);
-	if (x > 0)
+	if (va_arg(arg, int) > 0)
 		write(1, x, length(x));
 }
 

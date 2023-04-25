@@ -40,7 +40,7 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
-   _printf("hola %c\n");
+   _printf("hola %s\n");
   printf("Hole %c\n") ;
     return (0);
 }
