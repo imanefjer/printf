@@ -13,30 +13,29 @@ void print_C(char c);
 
 int _printf(const char *format, ...)
 {
-	int i = 0, k = 0;
+	int i = 0, j = 0, k = 0;
 	va_list arg;
 	format_W formats[] = {
 		{"s", print_S},
 		{"c", print_C}
 	};
 	va_start(arg, format);
-	while (*format != '/0'){
-		if (*format == '%'){
+	while (*(format + j) != '/0'){
+		if (*(format + j) == '%'){
 			i = 0;
 			while (i < 2){
-				if (*(format + 1) == *formats[i].format){
+				if (*(format + i + 1) == *formats[i].format){
 					formats[i].f(arg);
 					k++;
 				}
 				i++;
 			}
-			format++;
+			j++;
 		}
 		else{
-			print_C(*format);
-			k++;
+			print_C(*(format + i));
 		}
-		format++;
+		j++;
 	}
 }
 
