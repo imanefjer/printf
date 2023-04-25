@@ -18,11 +18,15 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, k = 0;
 	va_list arg;
 	int check = 0;
-
 	format_W formats[] = {
 		{"s", print_S},
 		{"c", print_C}
 	};
+
+	if (format == NULL)
+        {
+                return (-1);
+        }
 	va_start(arg, format);
 	while (*format && *(format + j))
 	{
