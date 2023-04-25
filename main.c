@@ -33,6 +33,8 @@ int main(void)
     printf("Character:[%c]\n", 'H');
     x = _printf("String:[%s]\n", "I am a string !");
     x2 = printf("String:[%s]\n", "I am a string !");
+    printf("%d\n", len);
+    printf("%d\n", len2);
     printf("%d\n", x);
     printf("%d\n", x2);
     _printf("Address:[%p]\n", addr);

@@ -48,24 +48,24 @@ int _printf(const char *format, ...)
 			if (check == 0)
 			{
 				write(1, (format + j), 1);
+				len++;
 				if (format[j + 1] != '%')
 				{
-					len++;
 					write(1, (format + j + 1), 1);
+					len++;
 				}
-				len++;
 			}
 			j++;
 		}
 		else
 		{
+			len++;
 			write(1, (format + j), 1);
 		}
-		len++;
 		j++;
 	}
 	va_end(arg);
-	return (j);
+	return (len);
 }
 
 /**
@@ -98,9 +98,9 @@ int print_S(va_list arg)
 	if (x == NULL)
 	{
 		len = length("(NULL)");
-		return (len) ;
+		return (len);
 	}
-	write(1, x, length(x));
+	write(1, x, len);
 	return (len);
 }
 
