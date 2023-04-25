@@ -1,5 +1,6 @@
 #include "main.h"
 
+int length(char str[]);
 /**
  * _printf - Printf function
  * @format: format.
@@ -8,4 +9,12 @@
 
 int _printf(const char *format, ...)
 {
+}
+
+int length(char str[]){
+	int i = 0;
+	while(str[i] != '\0'){
+		i++;
+	}
+	return i;
 }
