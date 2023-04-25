@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include <stdarg.h>
+
 typedef struct formats
 {
 	char *format;
