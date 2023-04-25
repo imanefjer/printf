@@ -14,7 +14,6 @@ void print_C(char c);
 int _printf(const char *format, ...)
 {
 	int i = 0, k = 0;
-{	
 	va_list arg;
 	format_W format[] = {
 		{"s", print_S},
