@@ -20,9 +20,11 @@ int _printf(const char *format, ...)
 	int check = 0;
 	format_W formats[] = {
 		{"s", print_S},
-		{"c", print_C}
+		{"c", print_C},
+		{"S", print_S},
+		{"C", print_C}
 	};
-	
+
 	if (format == NULL)
 	{
 		return (-1);
