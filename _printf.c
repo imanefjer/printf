@@ -113,7 +113,6 @@ int  print_C(va_list arg)
 	char c;
 
 	c = va_arg(arg, int);
-	if (c > 0)
-		write(1, &c, 1);
+	write(1, &c, 1);
 	return (1);
 }
