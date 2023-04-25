@@ -4,6 +4,7 @@
 
 int length(char str[]);
 void print_S(va_list arg);
+void print_C(char c);
 /**
  * _printf - Printf function
  * @format: format.
@@ -41,4 +42,14 @@ void print_S(va_list arg)
 
 	x = va_arg(arg, char *);
 	write(1, x, length(x));
+}
+
+/**
+ * print_C - writes the character c to stdout
+ * @c: The character to print
+ * Return: nothing
+ */
+void  print_C(char c)
+{
+	write(1, &c, 1);
 }
