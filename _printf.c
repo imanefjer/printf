@@ -42,8 +42,7 @@ int _printf(const char *format, ...)
 				if (format[j + 1] == *formats[i].format)
 				{
 					len += formats[i].f(arg);
-					check = 1;
-					
+					check = 1;	
 				}
 				i++;
 			}
