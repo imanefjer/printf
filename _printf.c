@@ -1,5 +1,7 @@
 #include "main.h"
-
+#include <stdio.h>
+#include <unistd.h>
+#include <stdarg.h>
 
 int length(char str[]);
 int print_S(va_list arg);
