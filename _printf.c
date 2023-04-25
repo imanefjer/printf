@@ -37,8 +37,8 @@ int _printf(const char *format, ...)
 			i++;
 			}
 			if (check == 0){
-				write(1, (format +j),1);
-				if (*(format+j+1) != ']' && *(format+j+1) !=','){
+				 write(1, (format + j), 1);
+				if (*(format+j+1) != '%'){
 					write(1, (format + j +1), 1);
 				}
 			}
