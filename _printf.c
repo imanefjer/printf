@@ -5,6 +5,7 @@
 int length(char str[]);
 void print_S(va_list arg);
 void print_C(va_list arg);
+
 /**
  * _printf - Printf function
  * @format: format.
@@ -37,6 +38,8 @@ int _printf(const char *format, ...)
 		}
 		j++;
 	}
+	va_end(arg);
+	return (j);
 }
 
 /**
