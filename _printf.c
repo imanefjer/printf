@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 			j++;
 		}
 		else{
-			print_C(*(format + i));
+			write(1, *(format + 1), 1);
 		}
 		j++;
 	}
@@ -76,5 +76,5 @@ void  print_C(va_list arg)
 {
 	char c;
 	c = va_arg(arg, int);
-	write(1, c, 1);
+	write(1, &c, 1);
 }
