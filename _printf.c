@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 #include <unistd.h>
 #include <stdarg.h>
 
@@ -22,12 +21,13 @@ int _printf(const char *format, ...)
 		{"s", print_S},
 		{"c", print_C}
 	};
-
+	
 	if (format == NULL)
-        {
-                return (-1);
-        }
+	{
+		return (-1);
+	}
 	va_start(arg, format);
+
 	while (*format && *(format + j))
 	{
 		if (*(format + j) == '%')
@@ -90,7 +90,8 @@ void print_S(va_list arg)
 	char *x;
 
 	x = va_arg(arg, char *);
-	write(1, x, length(x));
+	if (x > 0)
+		write(1, x, length(x));
 }
 
 /**
@@ -103,5 +104,6 @@ void  print_C(va_list arg)
 	char c;
 
 	c = va_arg(arg, int);
-	write(1, &c, 1);
+	if (c > 0)
+		write(1, &c, 1);
 }
