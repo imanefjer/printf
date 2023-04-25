@@ -14,10 +14,13 @@ int main(void)
     k = _printf("%%s", NULL);
     l = _printf("\nbye\n", NULL);
     m = _printf("%s goal\n", "scored");
-    n = _printf("we%ncool\n");
+    n = _printf("we\%\ncool\n");
     o = _printf("catherine%\n");
     p = _printf("%");
     q = _printf("%s\n", NULL);
     printf("%d %d %d %d %d %d %d %d\n", i, j, k, l, m ,n , o , p, q);
-    return (0);
+   _printf("%c");
+   printf("%c");
+   
+   return (0);
 }
