@@ -9,4 +9,5 @@ typedef struct formats
 } format_W;
 
 int _printf(const char *format, ...);
-#endif
+
+#endif 
