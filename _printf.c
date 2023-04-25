@@ -32,7 +32,12 @@ int _printf(const char *format, ...)
 				}
 				i++;
 			}
+			if (i == 2){
+				write(1, (format +j),1);
+			}
+
 			j++;
+
 		}
 		else{
 			write(1, (format + j), 1);
