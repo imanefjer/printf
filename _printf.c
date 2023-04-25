@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 	format_W formats[] = {
 		{"s", print_S},
 		{"c", print_C},
-		{"d", print_d},
+		{"d", print_I},
 		{"i", print_I}
 	};
 
@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 				{
 					len += formats[i].f(arg);
 					check = 1;
-					printf("%s", *formats[i].format);
+					
 				}
 				i++;
 			}
