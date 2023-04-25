@@ -5,7 +5,7 @@
 
 int length(char str[]);
 int print_S(va_list arg);
-void print_C(va_list arg);
+int print_C(va_list arg);
 
 /**
  * _printf - Printf function
@@ -20,9 +20,7 @@ int _printf(const char *format, ...)
 	int check = 0;
 	format_W formats[] = {
 		{"s", print_S},
-		{"c", print_C},
-		{"S", print_S},
-		{"C", print_C}
+		{"c", print_C}
 	};
 
 	if (format == NULL)
@@ -41,9 +39,8 @@ int _printf(const char *format, ...)
 			{
 				if (format[j + 1] == *formats[i].format)
 				{
-					len + = formats[i].f(arg);
+					len += formats[i].f(arg);
 					check = 1;
-					j += 2;
 				}
 				i++;
 			}
@@ -53,10 +50,12 @@ int _printf(const char *format, ...)
 				write(1, (format + j), 1);
 				if (format[j + 1] != '%')
 				{
+					len++;
 					write(1, (format + j + 1), 1);
 				}
+				len++;
 			}
-			/*j++;*/
+			j++;
 		}
 		else
 		{
@@ -95,7 +94,7 @@ int print_S(va_list arg)
 	int len = 0;
 
 	x = va_arg(arg, char *);
-	len = lenght(x);
+	len = length(x);
 	if (x == NULL)
 	{
 		len = length("(NULL)");
@@ -110,11 +109,12 @@ int print_S(va_list arg)
  * @arg: Argument
  * Return: nothing
  */
-void  print_C(va_list arg)
+int  print_C(va_list arg)
 {
 	char c;
 
 	c = va_arg(arg, int);
 	if (c > 0)
 		write(1, &c, 1);
+	return (1);
 }

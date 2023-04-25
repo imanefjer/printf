@@ -5,7 +5,7 @@
 typedef struct formats
 {
 	char *format;
-	void (*f)(va_list arg);
+	int (*f)(va_list arg);
 } format_W;
 
 int _printf(const char *format, ...);
