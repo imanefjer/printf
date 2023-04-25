@@ -10,7 +10,7 @@ void print_C(va_list arg);
 /**
  * _printf - Printf function
  * @format: format.
- * Return: the number of characters printed 
+ * Return: the number of characters printed
  */
 
 int _printf(const char *format, ...)
@@ -24,29 +24,35 @@ int _printf(const char *format, ...)
 		{"c", print_C}
 	};
 	va_start(arg, format);
-	while (*format && *(format + j)){
-		if (*(format + j) == '%'){
+	while (*format && *(format + j))
+	{
+		if (*(format + j) == '%')
+		{
 			i = 0;
 			check = 0;
-			while (i < 2){
-				if (*(format + j + 1) == *formats[i].format){
+			while (i < 2)
+			{
+				if (*(format + j + 1) == *formats[i].format)
+				{
 					formats[i].f(arg);
 					k++;
 					check = 1;
 				}
 			i++;
 			}
-			if (check == 0){
-				 write(1, (format + j), 1);
-				if (*(format+j+1) != '%'){
-					write(1, (format + j +1), 1);
+
+			if (check == 0)
+			{
+				write(1, (format + j), 1);
+				if (*(format + j + 1) != '%')
+				{
+					write(1, (format + j + 1), 1);
 				}
 			}
-
 			j++;
-
 		}
-		else{
+		else
+		{
 			write(1, (format + j), 1);
 		}
 		j++;
@@ -60,9 +66,12 @@ int _printf(const char *format, ...)
  * @str: the string
  * Return: the length of the string
 */
-int length(char str[]){
+int length(char str[])
+{
 	int i = 0;
-	while(str[i]){
+
+	while (str[i])
+	{
 		i++;
 	}
 	return (i);
@@ -88,6 +97,7 @@ void print_S(va_list arg)
 void  print_C(va_list arg)
 {
 	char c;
+
 	c = va_arg(arg, int);
 	write(1, &c, 1);
 }
