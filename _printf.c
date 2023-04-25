@@ -17,6 +17,8 @@ int _printf(const char *format, ...)
 {
 	int i = 0, j = 0, k = 0;
 	va_list arg;
+	int check = 0;
+
 	format_W formats[] = {
 		{"s", print_S},
 		{"c", print_C}
@@ -25,14 +27,16 @@ int _printf(const char *format, ...)
 	while (*format && *(format + j)){
 		if (*(format + j) == '%'){
 			i = 0;
+			check = 0;
 			while (i < 2){
 				if (*(format + j + 1) == *formats[i].format){
 					formats[i].f(arg);
 					k++;
+					check = 1;
 				}
 			i++;
 			}
-			if (i == 2){
+			if (check == 0){
 				write(1, (format +j),1);
 				write(1, (format + j +1), 1);
 			}
