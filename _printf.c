@@ -15,10 +15,29 @@ int _printf(const char *format, ...)
 {
 	int i = 0, k = 0;
 	va_list arg;
-	format_W format[] = {
+	format_W formats[] = {
 		{"s", print_S},
 		{"c", print_C}
 	};
+	va_start(arg, format);
+	while (*format != '/0'){
+		if (*format == '%'){
+			i = 0;
+			while (i < 2){
+				if (*(format + 1) == *formats[i].format){
+					formats[i].f(arg);
+					k++;
+				}
+				i++;
+			}
+			format++;
+		}
+		else{
+			print_C(*format);
+			k++;
+		}
+		format++;
+	}
 }
 
 /**

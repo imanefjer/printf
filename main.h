@@ -2,7 +2,7 @@
 #define MAIN_H
 
 #include <stdarg.h>
-typedef struct format
+typedef struct formats
 {
 	char *format;
 	void (*f)(va_list arg);
