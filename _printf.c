@@ -21,7 +21,8 @@ int _printf(const char *format, ...)
 	format_W formats[] = {
 		{"s", print_S},
 		{"c", print_C},
-		{"d", print_d}
+		{"d", print_d},
+		{"i", print_I}
 	};
 
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
