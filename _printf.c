@@ -45,7 +45,6 @@ int _printf(const char *format, ...)
 				}
 				i++;
 			}
-
 			if (check == 0)
 			{
 				write(1, (format + j), 1);
