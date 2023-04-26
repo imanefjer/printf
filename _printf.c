@@ -101,7 +101,7 @@ int print_S(va_list arg)
 	x = va_arg(arg, char *);
 	if (x == NULL)
 	{
-		x = "(NULL)";
+		x = "(null)";
 	}
 	len = length(x);
 	write(1, x, len);
