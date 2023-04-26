@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 		{"i", print_I}
 	};
 
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (!format || (format[0] == '%' && !format[1]))
 	{
 		return (-1);
 	}
@@ -94,7 +94,7 @@ int print_S(va_list arg)
 	int len = 0;
 
 	x = va_arg(arg, char *);
-	if (x == NULL)
+	if (!x)
 	{
 		x = "(null)";
 	}
