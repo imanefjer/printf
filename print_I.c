@@ -2,8 +2,10 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdarg.h>
+
 void print_number(int n);
 int count_digit(int i);
+
 /**
  * print_I - prints an integer
  * @arg: Argument
@@ -14,9 +16,12 @@ int print_I(va_list arg)
 	int n = va_arg(arg, int);
 	int res = count_digit(n);
 
+	if (n <= 0)
+		res++;
 	print_number(n);
 	return (res);
 }
+
 /**
  * print_number - print number n
  * @n: int
@@ -40,6 +45,7 @@ void print_number(int n)
 	num[0] = (n1 % 10) + '0';
 	write(1, num, 1);
 }
+
 /**
  * count_digit - counts digits of n
  * @n: int
@@ -61,4 +67,3 @@ int count_digit(int i)
 	}
 	return (count);
 }
-
