@@ -3,6 +3,10 @@
 #include <unistd.h>
 #include <stdarg.h>
 
+int length(char str[]);
+int print_S(va_list arg);
+int print_C(va_list arg);
+
 /**
  * _printf - Printf function
  * @format: format.
