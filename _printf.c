@@ -12,7 +12,6 @@ int print_C(va_list arg);
  * @format: format.
  * Return: the number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
 	int i = 0, j = 0, len = 0;
