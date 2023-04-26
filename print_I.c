@@ -17,6 +17,11 @@ int print_I(va_list arg)
 	print_number(n);
 	return (res);
 }
+/**
+ * print_number - print number n
+ * @n: int
+ * Return: nothing
+ */
 void print_number(int n)
 {
 	int n1;
@@ -35,6 +40,11 @@ void print_number(int n)
 	num[0] = (n1 % 10) + '0';
 	write(1, num, 1);
 }
+/**
+ * count_digit - counts digits of n
+ * @n: int
+ * Return: number of digits
+ */
 int count_digit(int i)
 {
 	unsigned int count = 0;
