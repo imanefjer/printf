@@ -10,8 +10,8 @@
 int  print_I(va_list arg)
 {
 	int i;
-	char str[12];
-	char output[12];
+	char str[50];
+	char output[50];
 	int j = 0;
 	int k = 0;
 	int negative = 0;
