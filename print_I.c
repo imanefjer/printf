@@ -2,38 +2,51 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdarg.h>
+void print_number(int n);
+int count_digit(int i);
 /**
  * print_I - prints an integer
  * @arg: Argument
  * Return: nothing
  */
-int  print_I(va_list arg)
+int print_I(va_list arg)
 {
-	int i;
-	char str[50];
-	char output[50];
-	int j = 0;
-	int k = 0;
-	int negative = 0;
-	i = va_arg(arg, int);
-	if (i < 0)
-	{
-		negative = 1;
-		i = -i;
-	}
-	do {
-		str[j++] = i % 10 + '0';
-		i /= 10;
-	} while (i > 0);
-	if (negative == 1)
-	{
-		str[j++] = '-';
-	}
-	for (k = 0; k < j; k++)
-	{
-	output[k] = str[j - k - 1];
-	}
-	output[j] = '\0';
-	write(1, output, j);
-	return (1);
+	int n = va_arg(arg, int);
+	int res =count_digit(n);
+	print_number(n);
+	return (res);
 }
+void print_number(int n)
+{
+	int n1;
+	char dash[2] ="-";
+	char num[2];
+	if (n < 0)
+	{
+		write(1,dash,1);
+		n1 =-n;
+	}
+	else 
+		n1 = n;
+	if (n1 /10)
+		print_number(n1/10);
+	num[0] = (n1 % 10) + '0'; 
+	write(1, num ,1);
+}
+int count_digit(int i)
+{
+	unsigned int count = 0;
+	unsigned int u;
+
+	if (i < 0)
+		u = i* -1;
+	else 
+		u = i;
+	while (u != 0)
+	{
+		u/=10;
+		count++;
+	}
+	return (count);
+}
+
