@@ -2,7 +2,11 @@
 #define MAIN_H
 
 #include <stdarg.h>
-
+/**
+ * stuct formats - formats
+ * @format: format that are possible
+ * @f pointer to the printing function
+ */
 typedef struct formats
 {
 	char *format;
