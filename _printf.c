@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 		{
 			i = 0;
 			check = 0;
-			while (i < 3)
+			while (i < 4)
 			{
 				if (format[j + 1] == *formats[i].format)
 				{
