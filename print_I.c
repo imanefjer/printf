@@ -48,7 +48,7 @@ void print_number(int n)
 
 /**
  * count_digit - counts digits of n
- * @n: int
+ * @i: int
  * Return: number of digits
  */
 int count_digit(int i)
