@@ -29,7 +29,7 @@ int print_I(va_list arg)
  */
 void print_number(int n)
 {
-	int n1;
+	unsigned int n1;
 	char dash[2] = "-";
 	char num[2];
 
