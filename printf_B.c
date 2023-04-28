@@ -34,11 +34,16 @@ void print_rst(long int n, long int l)
 
 	num = malloc(sizeof(char) * l);
 
-	while (n1 > 0)
+	if (n1 == 0)
+		num[i] = '0';
+	else
 	{
-		num[i] = (n1 % 10) + '0';
-		i++;
-		n1 /= 10;
+		while (n1 > 0)
+		{
+			num[i] = (n1 % 10) + '0';
+			i++;
+			n1 /= 10;
+		}
 	}
 	_print_rev_recursion(num);
 	free(num);
@@ -50,7 +55,7 @@ void print_rst(long int n, long int l)
  *
  * Return: x power y
  */
-long int _pow(long int x,long int y)
+long int _pow(long int x, long int y)
 {
 	if (y == 0)
 		return (1);
@@ -65,11 +70,16 @@ long int _pow(long int x,long int y)
  */
 int print_B(va_list arg)
 {
-	unsigned long int num, rst;
-	int rest, lon;
+	unsigned long int num = 0, rst = 0;
+	int rest = 0, lon = 0;
 	long int  power = 0;
 
 	num = va_arg(arg, unsigned int);
+	if (num == 0 || num == 1)
+	{
+		print_rst(num, 1);
+		return (1);
+	}
 	while (num > 0)
 	{
 		rest = num % 2;
@@ -81,5 +91,6 @@ int print_B(va_list arg)
 		lon++;
 	}
 	print_rst(rst, lon);
+	va_end(arg);
 	return (lon);
 }
