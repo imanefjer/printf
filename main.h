@@ -19,4 +19,5 @@ int print_S(va_list arg);
 int print_C(va_list arg);
 int _printf(const char *format, ...);
 int print_I(va_list arg);
+int print_B(va_list arg);
 #endif
