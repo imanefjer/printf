@@ -50,7 +50,7 @@ void print_rst(long int n, long int l)
  *
  * Return: x power y
  */
-int _pow(int x, int y)
+long int _pow(long int x,long int y)
 {
 	if (y == 0)
 		return (1);
