@@ -21,7 +21,8 @@ int _printf(const char *format, ...)
 		{"s", print_S},
 		{"c", print_C},
 		{"d", print_I},
-		{"i", print_I}
+		{"i", print_I},
+		{"b", print_B}
 	};
 
 	if (!format || (format[0] == '%' && !format[1]))
@@ -36,7 +37,7 @@ int _printf(const char *format, ...)
 		{
 			i = 0;
 			check = 0;
-			while (i < 4)
+			while (i < 5)
 			{
 				if (format[j + 1] == *formats[i].format)
 				{
